@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <link rel="stylesheet" href="jzen557.css" type="text/css" />
+    <script defer="true" src="jzen557.js"> </script>
+    <title>
+        Dunedin Dairy
+    </title>
+
+
+</head>
+
+
+<body onload="showHome()">
+
+    <div class="flex-container">
+        <div><img src="http://redsox.uoa.auckland.ac.nz/ds/logo-192x192.png" alt="logo"></div>
+        <div><button class="btn" id="HomeTap" onclick="showHome()"> &#9962 </button></div>
+        <div><button class="btn" id="ProductsTap" onclick="showProducts()"> &#127829 </button></div>
+        <div><button class="btn" id="LocationTap" onclick="showLocation()"> &#9971 </button></div>
+        <div><button class="btn" id="GuestBookTap" onclick="showGuestBook()"> &#128214 </button></div>
+        <div><button class="btn" id="RegistrationTap" onclick="showRegistration()"> &#128105 </button></div>
+        <div><button class="btn" id="NewsTap" onclick="showNews()"> &#128240 </button></div>
+        <div><button class="btn" id="LogTap" onclick="showLog()"> &#128120 </button></div>
+       
+     
+
+
+    </div>
+
+
+
+
+
+    <div id="Home">
+        <h1>Dunedin Dairy</h1>
+        <p>Welcome to the Dunedin Dairy, we sell the best diary products from within the New Zealand and abroad. Our
+            shop is open 24/7, and we try to give you the best shopping experience.</p>
+        <p> For your safety during this period, our deliveries are contactless at this point.</p>
+    </div>
+
+    <div id="Products">
+        <h1>Products</h1>
+        
+        <p id="inform"></p>
+        <p>Search our products:</p>
+
+        <input type="text" id="userInput" oninput="showFilteredResult()">
+        <table id="productTable" style="width:100%"></table>
+    </div>
+
+    <div id="Location">
+        <h1>Location</h1>
+        <img src="http://redsox.uoa.auckland.ac.nz/ds/map.png" alt="map">
+
+        <div id="information">
+
+
+        </div>
+
+    </div>
+
+    <div id="News">
+        <h1>News</h1>
+
+        <div id="news"></div>
+        <!--<script>
+            fetchAndBuildNewsNodes();
+        </script>
+    -->
+
+    </div>
+
+    <div id="GuestBook">
+
+        <h1> Guest Book</h1>
+        <p> Please leave your comment, which is important to us</p>
+        <form id="addComment">
+            <ul id="commentNotification"></ul>
+
+            <label for="name">Name</label><br />
+            <input type="text" id="name" name="name"></input><br />
+
+            <label for="comment">Comment</label><br />
+            <textarea id="comment" name="comment"></textarea><br />
+            <button type="button" onClick="submitCommentForm('addComment', 'comments')">submit</button>
+        </form>
+        <iframe id="comments" src="http://localhost:8188/DairyService.svc/htmlcomments"
+            style="width:100%"></iframe>
+
+    </div>
+
+    <div id="Registration">
+        <h1>Please register here to enjoy our services</h1>
+
+        <form id="RegisterForm" method="post">
+
+            <label for="username">Name:</label><br />
+            <input type="text" id="userName" name="name"></input><br />
+
+            <label for="password">Password:</label><br />
+            <input type="password" id="userPassword" name="password"></input><br />
+
+            
+            <label for="password">re-enter your password:</label><br />
+            <input type="password" id="userPasswordAgain" name="password"></input><br />
+
+            <button type="button" onClick="postUserCrentials()">register</button>
+        </form>
+
+
+        <p id="info"></p>
+
+    </div>
+
+    <!--
+    the login section would collect the user's credentials (username and password) and use the credentials when making a purchase request to the server backend.
+    -->
+    <!--
+    the first case is when user have logged in, when they purchase, they don't have to log in again.
+    the second case is when user have not logged in, when they purchase, they will go to log in page
+    -->
+
+    <!--
+        when register, users' username and password is stored locally
+    -->
+    <div id="Log">
+        <h1 id="logHeader"> please provide your name and password to log in</h1>
+
+        <form id="log">
+            <label for="username">Name:</label><br />
+            <input type="text" id="userNameLog" name="name"></input><br />
+
+            <label for="password">Password:</label><br />
+            <input type="password" id="userPasswordLog" name="password"></input><br />
+            <button type="button" onClick="storeUserCrentials()">log in</button>
+
+        </form>
+
+    
+        <p id="infoDisplay"></p>
+
+        <button type="button" onClick="logout()">log out</button>
+        
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+</html>
